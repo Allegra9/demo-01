@@ -17,7 +17,7 @@ export const getCollectionPhotos = async ({
 
 export const getPhotosByQuery = async ({ query }: { query: string }) => {
   const { data } = await axios.get(
-    `${UNSPLASH_ROOT}/search/photos?query=${query}&client_id=${clientId}`
+    `${UNSPLASH_ROOT}/search/photos?query=${query}&client_id=${clientId}&per_page=20`
   )
   return data
 }

@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  padding: 1rem;
 `
 
 export const ImageContainer = styled.div`

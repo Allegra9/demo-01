@@ -9,7 +9,7 @@ import {
 } from '@/hooks/useUnsplash'
 
 // const collectionId = '304898'
-const query = 'nature'
+const query = 'forest'
 
 export const Unsplash = () => {
   const { data } = useGetPhotosByQuery({ query })
@@ -23,8 +23,7 @@ export const Unsplash = () => {
         <ImageContainer key={item.id}>
           <Image
             src={item.urls.small}
-            loader={loader}
-            alt="Picture from Unsplash"
+            alt="Unsplash image"
             width={300}
             height={300}
           />
