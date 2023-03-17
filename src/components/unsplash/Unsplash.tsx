@@ -1,7 +1,6 @@
 import { Container, ImageContainer } from './Unsplash.style'
 import Image from 'next/image'
 import { Photo } from '@/types/unsplash'
-import { loader } from '@/utils/imageLoader'
 import {
   // useGetCollectionPhotos,
   useGetPhotosByQuery
