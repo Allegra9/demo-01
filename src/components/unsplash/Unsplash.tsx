@@ -1,5 +1,4 @@
-import { Container, ImageContainer } from './Unsplash.style'
-import Image from 'next/image'
+import { Container, ImageContainer, StyledImage } from './Unsplash.style'
 import { Photo } from '@/types/unsplash'
 import {
   // useGetCollectionPhotos,
@@ -8,7 +7,7 @@ import {
 } from '@/hooks/useUnsplash'
 
 // const collectionId = '304898'
-const query = 'forest'
+const query = 'red panda'
 
 export const Unsplash = () => {
   const { data } = useGetPhotosByQuery({ query })
@@ -20,7 +19,7 @@ export const Unsplash = () => {
     <Container>
       {photos?.map((item: Photo) => (
         <ImageContainer key={item.id}>
-          <Image
+          <StyledImage
             src={item.urls.small}
             alt="Unsplash image"
             width={300}
