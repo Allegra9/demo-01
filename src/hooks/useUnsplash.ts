@@ -3,17 +3,17 @@ import {
   getPhotosByQuery,
   getRandomPhoto
 } from '@/api/unsplash'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
-const staleTime = 1000 * 60 * 60 * 2
+const staleTime = 2 * 60 * 60 * 1000 // 2hrs
 
 export const useGetPhotosByQuery = ({ query }: { query: string }) =>
-  useQuery(query, () => getPhotosByQuery({ query }), {
+  useQuery([query], () => getPhotosByQuery({ query }), {
     staleTime
   })
 
 export const useGetRandomPhoto = () =>
-  useQuery('random-photo', () => getRandomPhoto(), {
+  useQuery(['random-photo'], () => getRandomPhoto(), {
     staleTime
   })
 
@@ -22,6 +22,10 @@ export const useGetCollectionPhotos = ({
 }: {
   collectionId: string
 }) =>
-  useQuery('collection-photos', () => getCollectionPhotos({ collectionId }), {
-    staleTime
-  })
+  useQuery(
+    ['collection-photos', collectionId],
+    () => getCollectionPhotos({ collectionId }),
+    {
+      staleTime
+    }
+  )
